@@ -1,6 +1,9 @@
 package monster.esex.Nedia;
 
 import com.mojang.logging.LogUtils;
+import monster.esex.Nedia.blocks.NediaBlocks;
+import monster.esex.Nedia.items.NediaItems;
+import monster.esex.Nedia.organizational.creative.NediaCreativeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -22,6 +25,9 @@ public class Nedia
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        NediaBlocks.registerBlocks(modEventBus);
+        NediaItems.registerItems(modEventBus);
+        NediaCreativeTabs.registerTabs(modEventBus);
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
